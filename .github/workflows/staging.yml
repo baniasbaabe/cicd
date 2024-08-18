@@ -31,4 +31,6 @@ jobs:
         run: |
           git describe --tags --abbrev=0
       - name: Print cz
-        run: cz version --project
+        run: |
+          pip install commitizen
+          cz version --project
