@@ -24,8 +24,13 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           prerelease: beta
+          changelog: false
       - name: Print Version
         run: echo "Bumped to version ${{ steps.cz.outputs.version }}"
       - name: Print tag
         run: |
           git describe --tags --abbrev=0
+      - name: Print cz
+        run: |
+          pip install commitizen
+          cz version --project
